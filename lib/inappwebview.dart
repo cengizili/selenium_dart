@@ -137,7 +137,7 @@ class _SessionWebViewState extends State<SessionWebView> {
           }));
           // Now we can move to the view.
           Navigator.push(context, MaterialPageRoute(builder: (context) => Stories(),));
-          // The first update to the view to start scrolling.
+          // The first update to the html to start scrolling.
           await widget.selenium.updateHtml();
       }}
     );
