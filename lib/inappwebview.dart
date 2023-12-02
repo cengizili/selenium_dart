@@ -105,11 +105,17 @@ class _SessionWebViewState extends State<SessionWebView> {
       },
       onWebViewCreated: (controller) async {
         widget.selenium.controller = controller;
+        // Allow cookies and dismiss pop up.
         await widget.selenium.clickElement('button[class=" _acan _acap _acaq _acas _acav _aj1- _ap30"]');
+        // Click log in on the landing page.
         await widget.selenium.clickElement('button[class="_aicz  _acan _acao _acas _aj1- _ap30"]');
+        // Input username.
         await widget.selenium.sendText(".....", 'input[aria-label="Phone number, username, or email"]', duration: 3);
+        // Input password.
         await widget.selenium.sendText(".....", 'input[aria-label="Password"]', duration: 3);
+        // Click log in.
         await widget.selenium.clickElement('button[class=" _acan _acap _acas _aj1- _ap30"]', clickIndex: 1);
+        // Every scroll operation will change html, and we need to fetch stories after each scroll.
         widget.selenium.html.addListener(() async {
           if (widget.selenium.html.value != ""){
             final els = await widget.selenium.findElements('img[class="xpdipgo x972fbf xcfux6l x1qhh985 xm0m39n xk390pu x5yr21d xdj266r x11i5rnm xat24cr x1mh8g0r xl1xv1r xexx8yu x4uap5 x18d9i69 xkhd6sd x11njtxf xh8yej3"]');
@@ -131,6 +137,7 @@ class _SessionWebViewState extends State<SessionWebView> {
           }));
           // Now we can move to the view.
           Navigator.push(context, MaterialPageRoute(builder: (context) => Stories(),));
+          // The first update to the view to start scrolling.
           await widget.selenium.updateHtml();
       }}
     );
