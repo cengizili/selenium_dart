@@ -107,8 +107,8 @@ class _SessionWebViewState extends State<SessionWebView> {
         widget.selenium.controller = controller;
         await widget.selenium.clickElement('button[class=" _acan _acap _acaq _acas _acav _aj1- _ap30"]');
         await widget.selenium.clickElement('button[class="_aicz  _acan _acao _acas _aj1- _ap30"]');
-        await widget.selenium.sendText("moridas8t", 'input[aria-label="Phone number, username, or email"]', duration: 3);
-        await widget.selenium.sendText("morbidangel", 'input[aria-label="Password"]', duration: 3);
+        await widget.selenium.sendText(".....", 'input[aria-label="Phone number, username, or email"]', duration: 3);
+        await widget.selenium.sendText(".....", 'input[aria-label="Password"]', duration: 3);
         await widget.selenium.clickElement('button[class=" _acan _acap _acas _aj1- _ap30"]', clickIndex: 1);
         widget.selenium.html.addListener(() async {
           if (widget.selenium.html.value != ""){
